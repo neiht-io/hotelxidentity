@@ -1,0 +1,98 @@
+﻿@model IEnumerable<HotelxIdentity.Models.Payment>
+
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+    <h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Payment</h4>
+    <hr />
+
+    <div class="body-payment" >
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "button" })
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentType.PaymentType1)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookingId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentType.PaymentType1)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PaymentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PaymentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PaymentId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+<style>
+
+    .body-payment{
+        padding:20px;
+    }
+
+    .body-payment {
+        margin-top: 20px;
+    }
+
+        .body-payment .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .body-payment .table th,
+            .body-payment .table td {
+                padding: 8px;
+                border: 1px solid #ccc;
+            }
+
+            .body-payment .table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+            .body-payment .table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+    .button {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+    }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+</style>

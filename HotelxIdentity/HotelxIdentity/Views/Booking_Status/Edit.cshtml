@@ -1,0 +1,72 @@
+﻿@model HotelxIdentity.Models.BookingStatu
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">BookingStatus</h4>
+<hr />
+
+<div class="form-container">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.BookingStatusId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BookingStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BookingStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BookingStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div>
+                    <input type="submit" value="Save" class="button" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="button-container">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "button" })
+    </div>
+</div>
+
+
+<style>
+    .form-container {
+        width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+</style>

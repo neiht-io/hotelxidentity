@@ -1,0 +1,160 @@
+﻿@model IEnumerable<HotelxIdentity.ViewModel.RoomDetailsViewModel>
+
+
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Room</h2>
+    <p class="btn-create-room">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table-room">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomDescription)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BookingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType)
+            </th>
+
+            <th style="text-align: center; ">
+               TÙY CHỌN
+            </th>
+          
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    <img src="@Url.Content("~/Hinh/"+item.RoomImage)" height="50" width="50" class="img-responsive" />
+                </td>
+                <td>
+                    @item.RoomPrice.ToString("#,##0.00")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomDescription)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomType)
+                </td>
+                <td>
+                   @Html.ActionLink("Edit", "Edit", new { id = item.RoomId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RoomId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RoomId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+<style>
+    .table-room {
+        border-collapse: collapse;
+        padding: 20px;
+        border-collapse: collapse;
+        width: 80%; /* Tuỳ chỉnh kích thước bảng theo ý muốn */
+        margin: 0 auto;
+    }
+
+        .table-room th,
+        .table-room td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        .table-room th {
+            background-color: #f2f2f2;
+        }
+
+        .table-room img {
+            max-height: 50px;
+            max-width: 50px;
+        }
+
+        .table-room .img-responsive {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    .btn-create-room {
+        text-align: left;
+        padding-left: 127px;
+    }
+
+        .btn-create-room a {
+            display: inline-block;
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-create-room a:hover {
+                background-color: #23527c;
+                .btn-back > a:-webkit-any-link
+            }
+
+    .table-room  td  a:-webkit-any-link {
+        display: inline-block;
+        padding: 10px 20px;
+       
+        color: #333;
+        text-decoration: none;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+    }
+
+
+    .table-room td a:-webkit-any-link:hover {
+        background-color: #23527c;
+        color: #fff;
+    }
+   
+</style>
+
+

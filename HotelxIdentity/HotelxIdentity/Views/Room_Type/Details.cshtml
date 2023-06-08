@@ -1,0 +1,60 @@
+﻿@model HotelxIdentity.Models.RoomType
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;" >RoomType</h4>
+<div >
+    <div class="container-detal-roomtype" >
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomTypeName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomTypeName)
+            </dd>
+
+        </dl>
+    </div>
+    <p class="button-container">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RoomTypeId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
+
+<style>
+    .container-detal-roomtype {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*height: 100vh;*/
+    }
+
+    .dl-horizontal {
+        text-align: center;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+        .button-container a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+            .button-container a:hover {
+                background-color: #45a049;
+            }
+
+</style>

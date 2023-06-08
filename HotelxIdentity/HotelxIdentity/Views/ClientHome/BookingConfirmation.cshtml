@@ -1,0 +1,22 @@
+﻿@model HotelxIdentity.Models.RoomBooking
+
+@{
+    ViewBag.Title = "ĐẶT PHÒNG THÀNH CÔNG";
+}
+
+<h2>Thông tin đặt phòng</h2>
+
+<div>
+    <h3>Booking Information</h3>
+    <p>Customer Name: @Model.CustomerName</p>
+    <p>Customer Address: @Model.CustomerAddress</p>
+    <p>Customer Phone: @Model.CustomerPhone</p>
+    <p>Booking From: @Model.BookingFrom</p>
+    <p>Booking To: @Model.BookingTo</p>
+    <p>Total: @Model.Total</p>
+</div>
+
+<div>
+    @Html.ActionLink("Quay về trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+</div>
+

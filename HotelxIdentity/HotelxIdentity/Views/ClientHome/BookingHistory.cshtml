@@ -1,0 +1,89 @@
+﻿@model List<HotelxIdentity.Models.RoomBooking>
+
+@{
+    ViewBag.Title = "Booking History";
+}
+
+<h2 style="text-align: center; margin-top: 50px; margin-bottom: 30px;">Lịch sử đặt phòng</h2>
+
+@{ if (Model.Count == 0)
+    {
+        <p style="text-align: center; margin-top: 50px; margin-bottom: 30px;">Không có lịch sử đặt phòng.</p>
+    }
+    else
+    { <div class="table-history-booking">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ngày đặt</th>
+                    <th>Ngày trả</th>
+                    <th>Số phòng</th>
+                    <th>Thành viên</th>
+                    <th>Tổng cộng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].BookingFrom.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@Model[i].BookingTo.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@Model[i].Room.RoomNumber</td>
+                        <td>@Model[i].NoOfMember</td>
+                        <td>@Model[i].Total</td>
+                        <td>
+                            @if (Model[i].BookingFrom > DateTime.Now.AddDays(1))
+                            {
+                                <a href="@Url.Action("CancelBooking", new { id = Model[i].BookingId })" onclick="return confirm('Bạn có chắc chắn muốn hủy đặt phòng?')" class="btn btn-danger">Hủy đặt</a>
+                            }
+                            else
+                            {
+                                <span class="btn btn-success">Xong</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    }
+}
+
+
+<style>
+    .center-table {
+        margin: 0 auto;
+        width: 80%; /* Tuỳ chỉnh kích thước bảng theo ý muốn */
+    }
+
+        .center-table th,
+        .center-table td {
+            text-align: center;
+        }
+
+
+    .table-history-booking{
+        display:block;
+        padding:20px;
+
+    }
+
+    .table-history-booking {
+        border-collapse: collapse;
+        width: 80%; /* Tuỳ chỉnh kích thước bảng theo ý muốn */
+        margin: 0 auto;
+    }
+
+        .table-history-booking th,
+        .table-history-booking td {
+            border: 1px solid #ccc; /* Màu và độ dày của đường viền */
+            padding: 8px; /* Khoảng cách từ nội dung đến đường viền */
+        }
+
+        .table-history-booking th {
+            background-color: #f2f2f2; /* Màu nền cho phần header */
+        }
+</style>

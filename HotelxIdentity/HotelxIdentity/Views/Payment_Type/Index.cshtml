@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HotelxIdentity.Models.PaymentType>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Payment Type</h4>
+<hr />
+
+
+<div class="container-paymentype">
+    <div class="container-paymentype-content">
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "button" })
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentType1)
+                </th>
+                <th>TÙY CHỌN</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentType1)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PaymentTypeId }, new { @class = "button" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PaymentTypeId }, new { @class = "button" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PaymentTypeId }, new { @class = "button" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<style>
+
+    .container-paymentype {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-paymentype-content {
+        text-align: center;
+    }
+
+        .container-paymentype-content .button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .container-paymentype-content .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .container-paymentype-content .table th,
+            .container-paymentype-content .table td {
+                border: 1px solid #ccc;
+                padding: 8px;
+            }
+
+        .container-paymentype-content .button:hover{
+            opacity:0.8;
+        }
+</style>

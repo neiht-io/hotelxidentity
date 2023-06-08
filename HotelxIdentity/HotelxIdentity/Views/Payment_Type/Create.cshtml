@@ -1,0 +1,71 @@
+﻿@model HotelxIdentity.Models.PaymentType
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Payment Type</h4>
+<hr />
+
+<div class="container-payment">
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PaymentType1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PaymentType1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PaymentType1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style=" padding-top: 5px;">
+                        <input type="submit" value="Create" class="button"  />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div style="padding-top:5px">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "button" })
+        </div>
+    </div>
+</div>
+
+<style>
+    .container-payment {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width:max-content;
+        margin:0 auto;
+
+    }
+
+        .container-payment input[type="submit"],
+        .container-payment a.button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+           
+        }
+
+            .container-payment input[type="submit"]:hover,
+            .container-payment a.button:hover {
+                background-color: #0056b3;
+            }
+
+</style>

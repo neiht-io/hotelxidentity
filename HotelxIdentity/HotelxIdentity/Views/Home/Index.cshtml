@@ -1,0 +1,331 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model HotelxIdentity.ModelClient.BookingViewModelCL
+
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Welcome LUNA HOTEL</h1>
+        <p>Discover the perfect getaway...</p>
+        <a href="@Url.Action("About", "Home")" class="btn-hero">Explore More</a>
+    </div>
+</div>
+
+
+
+<section class="search-room-content" style="padding-top:10px">
+    @{
+        Html.RenderPartial("SearchBar");
+    }
+</section>
+
+<div class="image-with-text">
+    <div class="text-container">
+        <h2>Welcome to HOTEL DE LUNA</h2>
+        <p>The Hote Luna is the right choice for visitors who are searching for a combination of charm and a convenient position from where to explore surroundings.</p>
+        <p>The rooms are arranged on the first, second and third floors. On the top floor, there is also a charming terrace or solarium available for the use of guests, from where you can enjoy the view.</p>
+        <div class="read-more">
+            <a class="wp-block-button__link" href="@Url.Action("RoomList", "ClientHome")">Booking Now</a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/welcome-1-902x1024.jpg" alt="Image 1">
+    </div>
+    <div class="image-container">
+        <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/welcome-2-1024x705.jpg" alt="Image 2">
+    </div>
+
+</div>
+
+
+<section class="features">
+    <div class="container">
+        <h2>View</h2>
+        <div class="feature">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/People-Say-.jpg" alt="Feature 1">
+            <h3>View 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="feature">
+            <img src="https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg" alt="Feature 2">
+            <h3>View 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="feature">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/amenities-new.jpg" alt="Feature 3">
+            <h3>View 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section>
+
+    <div class="image-room-content">
+        <div class="is-layout-flow wp-block-column">
+            <div class="wp-block-getwid-advanced-heading is-style-style-1 has-custom-font-size" style="font-size:12px;margin-bottom:0px">
+                <p class="wp-block-getwid-advanced-heading__content" style="text-transform:uppercase;letter-spacing:0.1em"> Welcome to our photo gallery</p>
+            </div>
+            <div class="wp-block-getwid-advanced-heading" style="margin-bottom:0px;margin-top:10px">
+                <h2 class="wp-block-getwid-advanced-heading__content">Photo Gallery of Our Hotel  </h2>
+            </div>
+        </div>
+
+        <div class="is-layout-flow wp-block-column">
+            <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+            <div class="wp-block-button alignright is-style-default">
+                <a class="wp-block-button__link" href="@Url.Action("RoomList", "ClientHome")">View Room</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    <div class="image-grid">
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/gallery-8.jpg" alt="Image 1">
+        </div>
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/about-rooms-2.jpg" alt="Image 2">
+        </div>
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/06/single-room-3.jpg" alt="Image 3">
+        </div>
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/06/single-room-4.jpg" alt="Image 4">
+        </div>
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/06/single-room-2.jpg" alt="Image 5">
+        </div>
+
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/gallery-2-1170x1149.jpg" alt="Image 7">
+        </div>
+        <div class="image-item">
+            <img src="https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/welcome-1-1.jpg" alt="Image 8">
+        </div>
+        @*Tiếp tục thêm hình ảnh khác vào đây*@
+    </div>
+
+
+
+
+
+
+
+</section>
+
+
+
+<style>
+
+    body, h1, h2, h3, p, img {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+    .hero {
+        background-image: url("https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/slide-2-new-2560x1268.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffffff
+        }
+
+    .btn-hero {
+        display: inline-block;
+        background-color: none;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+    }
+
+        .btn-hero:hover {
+            display: inline-block;
+            background-color: #624b4b;
+            color: #f2f2f2;
+        }
+
+
+    .image-with-text {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        margin: 150px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .text-container h2 {
+            font-size: 32px;
+            padding-bottom: 60px;
+        }
+
+        .text-container p {
+            font-size: 20px;
+        }
+
+    .read-more {
+        margin-top: 20px;
+    }
+
+
+
+
+
+
+
+    .features {
+        background-color: #f2f2f2;
+        padding: 50px 0;
+        text-align: center;
+        position:relative;
+    }
+
+    .feature {
+        margin-bottom: 40px;
+    }
+
+        .feature img {
+            width: 610p;
+            height: 329px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 18px;
+        }
+
+
+
+
+    .image-room-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding: 0 30px;
+    }
+
+    .wp-block-column {
+        width: 50%;
+    }
+
+    .wp-block-getwid-advanced-heading__content {
+        margin: 0;
+    }
+
+    .wp-block-getwid-advanced-heading.is-style-style-1 {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+        .wp-block-getwid-advanced-heading.is-style-style-1 p {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+    .wp-block-getwid-advanced-heading h2 {
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    .wp-block-button.alignright {
+        text-align: right;
+    }
+
+    .wp-block-button__link {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+
+        .wp-block-button__link:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 80px;
+    }
+
+    .image-item {
+        width: 100%;
+    }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+        }
+</style>
+

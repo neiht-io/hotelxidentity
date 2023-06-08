@@ -1,0 +1,58 @@
+﻿@model HotelxIdentity.Models.Payment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Payment</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BookingId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookingId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PaymentAmount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PaymentAmount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PaymentType.PaymentType1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PaymentType.PaymentType1)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PaymentId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

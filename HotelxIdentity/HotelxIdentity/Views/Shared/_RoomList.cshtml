@@ -1,0 +1,117 @@
+﻿@model List<HotelxIdentity.ModelClient.RoomViewModelCL>
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    int roomCapacity = (int)ViewData["RoomCapacity"];
+}
+
+@{ if (roomCapacity != null)
+    {
+        <h2 style="text-align: center; margin-top: 50px; margin-bottom: 30px;"> Kết quả tìm kiếm cho phòng @roomCapacity người </h2>
+
+        <div class="rooms-wrapper">
+            @foreach (var room in Model)
+            {
+                <div class="room-card">
+                    <img src="~/Hinh/@room.RoomImage" class="card-img-top" alt="Room Image">
+                    <div class="room-info">
+                        <h3 class="room-name"><strong>Room</strong>:  @room.RoomNumber  </h3>
+                        <p class="room-description">@room.RoomDescription</p>
+                        <p class="room-price">Price:  @room.RoomPrice USD </p>
+                        <p class="room-capacity">Capacity: @room.RoomCapacity people</p>
+                        <p class="room-type"> Type: @room.RoomTypeName</p>
+                        <a href="@Url.Action("BookRoom", new { id = room.RoomId })" class="btn btn-primary">Book Room</a>
+                    </div>
+                </div>
+            }
+        </div>
+    } }
+@{
+    if (roomCapacity == null)
+    {
+        <h2 style="text-align: center; margin-top: 50px; margin-bottom: 30px;"> Kết quả tìm kiếm cho tất cả các phòng </h2>
+
+        <div class="rooms-wrapper">
+            @foreach (var room in Model)
+            {
+                <div class="room-card">
+                    <img src="~/Hinh/@room.RoomImage" class="card-img-top" alt="Room Image">
+                    <div class="room-info">
+                        <h3 class="room-name"><strong>Room</strong>:  @room.RoomNumber  </h3>
+                        <p class="room-description">@room.RoomDescription</p>
+                        <p class="room-price">Price:  @room.RoomPrice USD </p>
+                        <p class="room-capacity">Capacity: @room.RoomCapacity people</p>
+                        <p class="room-type"> Type: @room.RoomTypeName</p>
+                        <a href="@Url.Action("BookRoom", new { id = room.RoomId })" class="btn btn-primary">Book Room</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+}
+
+
+
+
+
+
+
+
+
+<style>
+    .rooms-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .room-card {
+        width: 320px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+
+    .room-info {
+        padding: 20px;
+    }
+
+    .room-name {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    .room-price {
+        font-size: 18px;
+    }
+
+    .room-type {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #777777;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #ff6f00;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+</style>

@@ -1,0 +1,80 @@
+﻿@model HotelxIdentity.Models.BookingStatu
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">BookingStatus</h4>
+<hr />
+
+<div class="container">
+    <div class="content">
+        <div class="data">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.BookingStatus)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BookingStatus)
+                </dd>
+
+            </dl>
+        </div>
+        <p class="button-group">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BookingStatusId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .content {
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+
+    .data {
+        margin-bottom: 20px;
+    }
+
+    .dl-horizontal dt {
+        float: left;
+        clear: left;
+        text-align: left;
+        width: max-content;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .button-group a {
+        margin-top: 10px;
+    }
+
+    .button-group a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 5px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+        .button-group a:hover {
+            background-color: #0056b3;
+        }
+
+</style>

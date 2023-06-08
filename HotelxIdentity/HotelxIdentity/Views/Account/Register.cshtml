@@ -1,0 +1,67 @@
+﻿@model HotelxIdentity.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<main aria-labelledby="title">
+    <h2 id="title"style="text-align: center; margin-top: 10px; margin-bottom: 20px ">@ViewBag.Title.</h2>
+
+    <div class="text-success">
+        <p>
+            @ViewBag.SendCode
+        </p>
+
+    </div>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px ">Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        <div class="signup-content">
+        <div class="">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+            <div class="">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+            <div class="" >
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = " col-form-label" })
+            <div class="">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="" style=" text-align: center; margin-top: 10px; margin-bottom: 20pxx">
+            <div class="">
+                <input type="submit" value="Register" class="btn btn-outline-dark" />
+            </div>
+        </div>
+            </div>
+    }
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    .signup-content {
+       /* display: flex;*/
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 50px;
+        width: max-content;
+        margin: 0 auto;
+
+    }
+</style>

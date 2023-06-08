@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("HOTEL DE LUNA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+
+
+
+
+
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Room", "Index", "Room", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Booking", "Index", "Room_Booking", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("RoomType", "Index", "Room_Type", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("BookingStatus", "Index", "Booking_Status", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Payment", "Index", "Payment", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("PaymentType", "Index", "Payment_Type", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        }
+                        if (User.IsInRole("Client"))
+                        {
+
+                            <li>@Html.ActionLink("Danh sách phòng", "RoomList", "ClientHome", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Tìm kiếm phòng", "SearchRooms", "ClientHome", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Lịch sử", "BookingHistory", "ClientHome", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+
+
+
+                    }
+
+
+                </ul>
+                 @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    <div class="body-home">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - HOTEL DE LUNA</p>
+        </footer>
+        <style>
+            footer {
+                background-color: #333;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+                bottom: 0;
+                position: relative;
+                width: 100%;
+           
+            }
+        </style>
+       
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<style>
+    .body-home {
+        min-height: 100vh;
+        margin-bottom: -50px; /* Đảm bảo không bị chồng lên footer */
+    }
+
+    .navbar > .container{
+        flex-wrap : wrap;
+    }
+
+</style>

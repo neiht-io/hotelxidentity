@@ -1,0 +1,99 @@
+﻿@model HotelxIdentity.Models.BookingStatu
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="my-container">
+    <div class="form-container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>BookingStatu</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BookingStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BookingStatus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BookingStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <div>
+                        <input type="submit" value="Create" class="button"/>
+                    </div>
+                    <div class="button-group">
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "button" })
+                    </div>
+                </div>
+            </div>
+        }
+
+      
+    </div>
+</div>
+
+<style>
+    .my-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #343a40;
+        padding:10px;
+    }
+
+    .form-container {
+        width: 400px;
+        width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #fff;
+    }
+
+        .form-container h4 {
+            text-align: center;
+        }
+
+    .control-label {
+        text-align: right;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+        .button:hover {
+            background-color: #0056b3;
+            color:aliceblue;
+        }
+
+    
+
+</style>

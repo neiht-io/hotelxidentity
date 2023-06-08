@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HotelxIdentity.Models.RoomType>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;" >RoomType</h4> 
+
+<div class="room-type-container">
+    <p class="create-new-btn">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn-create" })
+    </p>
+    <table  class="room-type-table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomTypeName)
+            </th>
+            <th>
+                TÙY CHỌN
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomTypeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RoomTypeId }, new { @class = "btn-edit" }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RoomTypeId }, new { @class = "btn-details" }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RoomTypeId }, new { @class = "btn-delete" })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</div>
+
+
+<style>
+    .room-type-container {
+        text-align: center;
+    }
+
+    .create-new-btn {
+        text-align: center;
+    }
+
+    .btn-create {
+        display: inline-block;
+        padding: 8px 16px;
+        margin-bottom: 10px;
+        background-color: #28a745;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .room-type-table {
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+
+        .room-type-table th,
+        .room-type-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+    .btn-edit,
+    .btn-details,
+    .btn-delete {
+        display: inline-block;
+        padding: 4px 8px;
+        margin: 4px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .btn-edit:hover,
+        .btn-details:hover,
+        .btn-delete:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+</style>

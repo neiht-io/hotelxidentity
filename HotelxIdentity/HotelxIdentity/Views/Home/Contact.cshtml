@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<main aria-labelledby="title">
+    <h2 style="text-align: center; margin-top: 50px; margin-bottom: 30px;" id="title">@ViewBag.Title.</h2>
+    
+
+    <section id="contact-content">
+
+        <div class="address-contact">
+            <address>
+                HOTEL DE LUNA<br />
+                VietNam <br />
+                <abbr title="Phone">P:</abbr>
+                425.555.0100
+            </address>
+
+            <address>
+               <div> <strong>Khắc Thiên:</strong> <a href="mailto:Marketing@example.com">example.com</a> </div>
+                <div>  <strong>Gia Hưng:</strong>   <a href="mailto:S@example.com">example.com</a> </div>
+                 <div> <strong>Phúc Lộc:</strong> <a href="mailto:Marketing@example.com">example.com</a> </div><br />
+            </address>
+        </div>
+
+
+        <form class="send-contact" >
+            <label for="name">Họ tên:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Nội dung:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <input type="submit" value="Gửi">
+
+        </form>
+    </section>
+</main>
+<style>
+    #contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding-bottom:100%;
+    }
+        #contact-content > .address-contact,
+        #contact-content > .send-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contact-content > main {
+            padding: 20px;
+        }
+
+    #contact-content > section {
+        margin-bottom: 20px;
+    }
+
+    #contact-content > h2 {
+        color: #333;
+    }
+
+        #contact-content > form{
+            display: flex;
+            flex-direction: column;
+        }
+
+    #contact-content > form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    #contact-content > form input, #contact-content > form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+        #contact-content > form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            #contact-content >  form input[type="submit"]:hover {
+                background-color: #555;
+            }
+
+
+
+</style>

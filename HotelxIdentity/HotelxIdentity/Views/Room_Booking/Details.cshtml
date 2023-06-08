@@ -1,0 +1,160 @@
+﻿@model HotelxIdentity.Models.RoomBooking
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div>
+    <div class="table-details">
+        
+        <h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">RoomBooking</h4>
+        <hr />
+        <d>
+        <dl >
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerAddress)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerPhone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerPhone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookingFrom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookingFrom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookingTo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookingTo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NoOfMember)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NoOfMember)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Total)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AspNetUser.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PaymentType.PaymentType1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PaymentType.PaymentType1)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Room.RoomNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Room.RoomNumber)
+            </dd>
+    
+        </dl>
+    </d>
+    <p class="button-container1">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+        </div>
+     
+</div>
+
+<style>
+
+    .table-details {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .table-details h4 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .table-details dl {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .table-details dt {
+            width: 30%;
+            text-align: right;
+            padding: 5px;
+        }
+
+        .table-details dd {
+            width: 70%;
+            text-align: left;
+            padding: 5px;
+        }
+
+    .button-container1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .button-container1 a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .button-container1 a:hover {
+                background-color: #0056b3;
+            }
+
+    </style>

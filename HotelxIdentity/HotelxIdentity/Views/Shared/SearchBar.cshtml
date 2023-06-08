@@ -1,0 +1,61 @@
+﻿@model HotelxIdentity.ModelClient.BookingViewModelCL
+
+@using (Html.BeginForm("SearchRooms", "ClientHome", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="seach-room">
+
+        <div class="form-search-room ">
+            <div class="search-room-label">  @Html.LabelFor(m => m.BookingFrom) </div>
+            <div class="search-room-calender">  @Html.EditorFor(m => m.BookingFrom) </div>
+            @Html.ValidationMessageFor(model => model.BookingFrom, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-search-room">
+            <div class="search-room-label">  @Html.LabelFor(m => m.BookingTo) </div>
+            <div class="search-room-calender">   @Html.EditorFor(m => m.BookingTo)</div>
+            @Html.ValidationMessageFor(model => model.BookingTo, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-search-room">
+            <div class="search-room-label">   @Html.LabelFor(m => m.NoOfMember)</div>
+            <div class="search-room-calender">  @Html.TextBoxFor(m => m.NoOfMember)</div>
+            @Html.ValidationMessageFor(model => model.NoOfMember, "", new { @class = "text-danger" })
+        </div>
+
+
+        <button type="submit" class="btn-searchroom">Search</button>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+
+<style>
+    .seach-room {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Số lượng cột và độ rộng của mỗi cột */
+        grid-gap: 0px;
+        background-color: #252e59;
+        padding: 16px;
+        margin: 0px 130px;
+    }
+
+    .search-room-label {
+        color: #ffffff;
+    }
+
+    .search-room-calender {
+        padding: 5px 0;
+    }
+</style>
+

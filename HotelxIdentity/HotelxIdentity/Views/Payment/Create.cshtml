@@ -1,0 +1,95 @@
+﻿@model HotelxIdentity.Models.Payment
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h4 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Payment</h4>
+<hr />
+<div class="container-payment">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BookingId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BookingId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookingId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaymentTypeId, "PaymentTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PaymentTypeId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PaymentTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaymentAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PaymentAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PaymentAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+        <div style="padding-top:5px">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "button" })
+        </div>
+    </div>
+        }
+
+        
+    </div>
+
+
+<style>
+    .container-payment {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        align-content: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        width: max-content;
+        margin: 0 auto; /* Căn giữa theo chiều ngang */
+        padding:30px;
+    }
+
+        .container-payment input[type="submit"],
+        .container-payment a.button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            width:max-content;
+        }
+
+            .container-payment input[type="submit"]:hover,
+            .container-payment a.button:hover {
+                background-color: #0056b3;
+            }
+
+</style>

@@ -1,0 +1,143 @@
+﻿@model HotelxIdentity.Models.Room
+
+
+@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align: center; margin-top: 10px; margin-bottom: 20px;">Details</h2>
+<div class="room-detal-body">
+    <div class="room-detal">
+        <h4>Room</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomImage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomImage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomCapacity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomCapacity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BookingStatu.BookingStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BookingStatu.BookingStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomType.RoomTypeName)
+            </dd>
+
+        </dl>
+    </div>
+    </div>
+        <p class=room-detal-btn>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+
+        <style>
+            .room-detal-body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*height: 70vh;*/
+                margin: 0;
+                padding: 0;
+            }
+            
+                        .room-detal {
+                            border-radius: 10px;
+                            background-color: #f2f2f2;
+                            padding: 20px;
+                        }
+
+                        .dl-horizontal dt {
+                            float: left;
+                            width: 200px;
+                            clear: left;
+                            text-align: right;
+                            margin-right: 10px;
+                            font-weight: bold;
+                        }
+
+                        .dl-horizontal dd {
+                            margin-left: 220px;
+                            margin-bottom: 10px;
+                        }
+
+                        .room-detal-btn {
+                            text-align: center;
+                        }
+
+                            .room-detal-btn a {
+                                display: inline-block;
+                                padding: 10px 20px;
+                                background-color: #4CAF50;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 4px;
+                                transition: background-color 0.3s ease;
+                                margin-right: 10px;
+                            }
+
+                                .room-detal-btn a:last-child {
+                                    margin-right: 0;
+                                }
+
+                                .room-detal-btn a:hover {
+                                    background-color: #45a049;
+                                }
+        </style>
